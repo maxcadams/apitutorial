@@ -1,3 +1,3 @@
-# venerablepoc
+# api test tutorial
 
-Domain model solution to n:m network connections problem. (more to add as we go)
+rest api tutorial
