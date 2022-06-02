@@ -1,4 +1,4 @@
-service: parties
+service: serverless-test
 # app and org for use with dashboard.serverless.com
 #app: todo-service
 #org: stevenskarupa
@@ -77,4 +77,4 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 10
           WriteCapacityUnits: 10
-        TableName: 'serverless_test'    
+        TableName: "${self:provider.environment.DYNAMODB_TABLE}"    
