@@ -27,7 +27,7 @@ def test_add_item():
     resp = db.add_item('Real Madrid', 'La Liga', 25, 640.7)
     
     assert resp['ResponseMetadata']['HTTPStatusCode'] == 200
-    print(db.table.item_count)
+    assert db.get_item_helper('Real Madrid', 'La Liga')
 
 
 def test_update_item():
