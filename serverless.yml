@@ -75,6 +75,6 @@ resources:
             AttributeName: id
             KeyType: HASH
         ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-        TableName: ${self:provider.environment.DYNAMODB_TABLE}    
+          ReadCapacityUnits: 10
+          WriteCapacityUnits: 10
+        TableName: 'serverless_test'    
