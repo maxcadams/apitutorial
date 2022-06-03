@@ -2,7 +2,7 @@ import json
 import time
 import logging
 import os
-from . import decimalencoder
+import decimalencoder
 import boto3
  
 dynamodb = boto3.resource('dynamodb')

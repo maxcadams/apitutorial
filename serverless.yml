@@ -1,7 +1,7 @@
 service: serverless-test
 # app and org for use with dashboard.serverless.com
-#app: todo-service
-#org: stevenskarupa
+app: serverless-test
+org: madams
  
 frameworkVersion: '3'
  
@@ -64,7 +64,7 @@ resources:
   Resources:
     TodosDynamoDbTable:
       Type: 'AWS::DynamoDB::Table'
-      DeletionPolicy: Retain
+      DeletionPolicy: Delete #change if you want to keep table
       Properties:
         AttributeDefinitions:
           - 
@@ -77,4 +77,4 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 10
           WriteCapacityUnits: 10
-        TableName: "${self:provider.environment.DYNAMODB_TABLE}"    
+        TableName: "${self:provider.environment.DYNAMODB_TABLE}"   #take note of naming nomenclature
