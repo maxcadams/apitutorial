@@ -5,9 +5,10 @@ import time
 import uuid
 import boto3
 
+
 dynamodb = boto3.resource('dynamodb')
  
-def create(event, context):
+def create(event, context): #POST, http verb
     data = json.loads(event['body'])
     if 'party' not in data:
         logging.error("validation failed")
@@ -15,7 +16,7 @@ def create(event, context):
       
     timestamp = str(time.time())
  
-    table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
+    table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])  #code from timestamp down
  
     party = {
       'id': str(uuid.uuid1()),

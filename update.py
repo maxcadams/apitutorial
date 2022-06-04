@@ -13,6 +13,7 @@ def update(event, context):
     logging.error("Validation Error - missing data")
     raise Exception("Couldn't update the party")
     return
+  
   timestamp = int(time.time() * 1000)
  
   table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
