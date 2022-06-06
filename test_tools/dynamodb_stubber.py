@@ -9,6 +9,7 @@ set up stubs and passes all calls through to the Boto3 client.
 """
 
 from decimal import Decimal
+from tkinter import W
 from botocore.stub import ANY
 from test_tools.example_stubber import ExampleStubber
 
@@ -40,7 +41,8 @@ class DynamoStubber(ExampleStubber):
         type(Decimal()): 'N',
         type(b''): 'B',
         type({}): 'M',
-        type([]): 'L'
+        type([]): 'L',
+        type(False): 'BOOL' #added type of bool as dynamo string
     }
 
     @staticmethod
@@ -68,6 +70,8 @@ class DynamoStubber(ExampleStubber):
                         {self.type_encoding[type(list_val)]: list_val}
                         for list_val in value
                     ]
+                elif value_type == 'BOOL':
+                    out_val = value
                 else:
                     out_val = str(value)
                 out_item[key] = {value_type: out_val}

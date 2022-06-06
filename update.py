@@ -14,7 +14,7 @@ def update(event, context):
     raise Exception("Couldn't update the party")
     return
   
-  timestamp = int(time.time() * 1000)
+  timestamp = str(time.time() * 1000)
  
   table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
   
